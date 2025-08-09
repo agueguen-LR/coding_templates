@@ -14,9 +14,12 @@ pkgs.mkShell {
   ];
   NIX_LD = lib.fileContents "${stdenv.cc}/nix-support/dynamic-linker";
 
+  # uv init or uv init --lib
+  # uv add <package>
+  # uv pip install -r requirements.txt
 	packages = with pkgs; [
-		uv # uv init or uv init --lib to start project
-	];
+		uv 	
+  ];
 
 	shellHook = ''
 		export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH

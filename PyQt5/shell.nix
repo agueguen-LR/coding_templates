@@ -11,7 +11,15 @@ pkgs.mkShell {
 	NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [
     stdenv.cc.cc # libstdc++
     zlib # libz (for numpy)
-  ];
+		glib # libgthread-2.0.so.0
+		libGL # libGL.so.1
+		fontconfig # libfontconfig.so.1
+		freetype # libfreetype.so.6
+		libxkbcommon # libxkbcommon.so.0
+		dbus # libdbus-1.so.3
+		xorg.libX11 # libX11.so.6
+		wayland # libwayland-client.so.0
+	];
   NIX_LD = lib.fileContents "${stdenv.cc}/nix-support/dynamic-linker";
 
   # uv init or uv init --lib or uv init --bare
@@ -20,11 +28,12 @@ pkgs.mkShell {
 	packages = with pkgs; [
 		uv 	
 		qt5.full
-		qtcreator
   ];
 
 	shellHook = ''
 		export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH
+		export QT_DEBUG_PLUGINS=1
+		export QT_QPA_PLATFORM=wayland
 
     if [ ! -d ".venv" ]; then
       uv venv

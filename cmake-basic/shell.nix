@@ -7,6 +7,7 @@ pkgs.mkShell {
 	packages = with pkgs; [
 		cmake
 		gcc
+		gdb
 		gnumake
     valgrind
 	];
@@ -15,7 +16,7 @@ pkgs.mkShell {
     if [ -d "build" ]; then
       rm -rf build
     fi
-    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -S . -B build
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -S . -B build
     cd build
   '';
 }

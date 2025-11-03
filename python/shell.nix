@@ -14,7 +14,7 @@ pkgs.mkShell {
   ];
   NIX_LD = lib.fileContents "${stdenv.cc}/nix-support/dynamic-linker";
 
-  # uv init or uv init --lib
+  # uv init or uv init --lib or uv init --bare
   # uv add <package>
   # uv pip install -r requirements.txt
 	packages = with pkgs; [
@@ -28,13 +28,6 @@ pkgs.mkShell {
       uv venv
     fi
 
-    if [ ! -d ".nix-bin" ]; then
-      mkdir -p .nix-bin
-      echo 'python3.13 main.py' >> .nix-bin/Run
-      chmod +x .nix-bin/Run
-    fi
-    export PATH=$PWD/.nix-bin:$PATH
-    
     source .venv/bin/activate
 	'';
 }

@@ -3,5 +3,6 @@ name = "pyqt5-project"
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
+    "debugpy>=1.8.17",
     "pyqt5>=5.15.11",
 ]

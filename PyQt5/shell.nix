@@ -35,6 +35,11 @@ pkgs.mkShell {
 		export QT_DEBUG_PLUGINS=1
 		export QT_QPA_PLATFORM=wayland
 
+		if [ ! -d ".envrc" ]; then
+			echo "use nix" > .envrc
+			direnv allow
+		fi
+
     if [ ! -d ".venv" ]; then
       uv venv
     fi

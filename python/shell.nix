@@ -24,8 +24,14 @@ pkgs.mkShell {
 	shellHook = ''
 		export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH
 
+		if [ ! -d ".envrc" ]; then
+			echo "use nix" > .envrc
+			direnv allow
+		fi
+
     if [ ! -d ".venv" ]; then
       uv venv
+			uv pip install -r requirements.txt
     fi
 
     source .venv/bin/activate

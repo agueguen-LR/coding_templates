@@ -2,3 +2,5 @@ debugpy==1.8.17
 pyqt5==5.15.11
 pyqt5-qt5==5.15.17
 pyqt5-sip==12.17.1
+pyqtwebengine==5.15.7
+pyqtwebengine-qt5==5.15.18

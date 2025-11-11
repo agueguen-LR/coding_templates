@@ -5,4 +5,5 @@ requires-python = ">=3.13"
 dependencies = [
     "debugpy>=1.8.17",
     "pyqt5>=5.15.11",
+    "pyqtwebengine>=5.15.7",
 ]

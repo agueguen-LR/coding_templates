@@ -1,4 +1,4 @@
-# Coding templates
+# Nix Dev Shells
 
 Nix-shells ready to be copied for starting new projects in various programming languages.
 
@@ -20,7 +20,7 @@ To set this as default behavior:
 alias nix-shell="nix-shell --run '<shell>'"
 ```
 
-## Available templates
+## Available shells
 
 - [python](./python) - A nix-shell template for python projects.
 - [arduino](./arduino) - A nix-shell template for arduino projects, specifically ESP32.
